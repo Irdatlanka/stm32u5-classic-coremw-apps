@@ -67,7 +67,7 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
-  BSP_LED_Init(LED1);
+  //BSP_LED_Init(LED1);
 
 
   /* Initialize all configured peripherals */
@@ -81,7 +81,25 @@ int main(void)
 
   MX_USBPD_Init();
   /* Configure the application hardware resources */
-
+  
+  //Testing board with green LED:
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_SET);
+  HAL_Delay(500);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
+  HAL_Delay(500);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_SET);
+  HAL_Delay(500);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
+  HAL_Delay(500);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_SET);
+  HAL_Delay(500);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
+  HAL_Delay(500);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_SET);
+  HAL_Delay(500);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
+  HAL_Delay(500);
+  
   /* Infinite loop */
   while (1)
   {
@@ -195,7 +213,8 @@ static void CACHE_Enable(void)
   */
 void Error_Handler(void)
 {
-  BSP_LED_On(LED1);
+  //RED LED
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
   while (1)
   {
   }
